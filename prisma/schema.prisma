@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model KaraokeSong {
+  id                Int      @id @default(autoincrement())
+  title             String   @map("title")
+  artist            String   @map("artist")
+  linkToMediaFile1  String   @map("link_to_media_file_1")
+  linkToMediaFile2  String?  @map("link_to_media_file_2")
+  linkToLrc         String   @map("link_to_lrc")
+  linkToSrv3        String   @map("link_to_srv3")
+  thumbnail         String?  @map("thumbnail")
+  @@map("karaoke_songs")
+}
